@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.send('AmarDokan Server is Running smoothly! 🚀');
+  res.send('AmarDokan Server is Running smoothly!');
 });
 
 
