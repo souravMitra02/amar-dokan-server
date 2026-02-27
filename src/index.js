@@ -3,17 +3,22 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
 dotenv.config();
 
 connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}));
 app.use(express.json()); 
 
 
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 app.get('/', (req, res) => {
   res.send('AmarDokan Server is Running smoothly!');
